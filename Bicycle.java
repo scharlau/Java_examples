@@ -1,4 +1,4 @@
-#using inheritance
+//using inheritance
 public class Bicycle {
   private String size;
   private String chain;
