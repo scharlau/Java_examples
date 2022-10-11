@@ -33,6 +33,11 @@ public class RoadBikeParts extends Parts {
     Part chain = new Part("11-speed", "enough gears for the flat");
     Part tyre_size = new Part("slick tyres", "go faster with less friction");
     BicycleComp myBike = new BicycleComp("large", new RoadBikeParts(chain, tyre_size));
-    System.out.println(myBike.getParts());
+    ArrayList<Part> myParts = (ArrayList<Part>) myBike.getParts();
+    for (Part part : myParts){
+      System.out.println(part.getName());
+    }
+    
+
   }
 }

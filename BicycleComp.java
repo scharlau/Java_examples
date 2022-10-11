@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 //using composition
 public class BicycleComp {
   private String size;
@@ -8,12 +10,17 @@ public class BicycleComp {
     this.parts = parts;
   }
   
-  public void setParts(RoadBikeParts newParts){
-    parts = newParts;
+  public ArrayList<Part> getParts(){
+    ArrayList<Part> myParts = new ArrayList<Part>();
+    RoadBikeParts rbp = this.parts;
+    myParts.add(rbp.getChain());
+    myParts.add(rbp.getTyreSize());
+    return myParts;
   }
 
-  public RoadBikeParts getParts(){
-    return this.parts;
+  public void setParts(ArrayList<Part> newParts){
+    RoadBikeParts rbp = new RoadBikeParts(newParts.get(0), newParts.get(1));
+    this.parts = rbp;
   }
 
 }
