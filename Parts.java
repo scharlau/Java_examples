@@ -1,7 +1,13 @@
-public interface Parts {
+import java.util.ArrayList;
 
-  public String getParts();
+abstract public class Parts {
+  private Part chain;
+  private Part tyre_size;
 
-  public void setParts(String newParts);
+  abstract public Part getChain();
+  abstract public Part getTyreSize();
+
+  abstract public ArrayList<Part> getParts();
+  abstract public void setParts(ArrayList<Part> newParts);
 
 }
