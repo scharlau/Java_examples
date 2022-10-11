@@ -25,19 +25,10 @@ public class RoadBikeParts extends Parts {
   }
 
   public void setParts(ArrayList<Part> newParts){
-    this.chain = newParts.get(0);
-    this.tyre_size = newParts.get(1);
+    RoadBikeParts rbp = new RoadBikeParts(newParts.get(0), newParts.get(1));
+    this.chain = rbp.getChain();
+    this.tyre_size = rbp.getTyreSize();
   }
 
-  public static void main(String[] args){
-    Part chain = new Part("11-speed", "enough gears for the flat");
-    Part tyre_size = new Part("slick tyres", "go faster with less friction");
-    BicycleComp myBike = new BicycleComp("large", new RoadBikeParts(chain, tyre_size));
-    ArrayList<Part> myParts = (ArrayList<Part>) myBike.getParts();
-    for (Part part : myParts){
-      System.out.println(part.getName());
-    }
-    
-
-  }
+  
 }
