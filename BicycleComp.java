@@ -1,23 +1,20 @@
 //using composition
 public class BicycleComp {
   private String size;
-  private String parts;
+  private RoadBikeParts parts;
 
-  public BicycleComp(String size, String parts){
+  public BicycleComp(String size, RoadBikeParts parts){
     this.size = size;
     this.parts = parts;
   }
   
-  public void setParts(String newParts){
+  public void setParts(RoadBikeParts newParts){
     parts = newParts;
   }
 
-  public String getParts(){
+  public RoadBikeParts getParts(){
     return this.parts;
   }
 
-  public static void main(String[] args){
-    BicycleComp myBike = new BicycleComp("large", "road bike");
-    System.out.println(myBike.getParts());
-  }
 }
+
