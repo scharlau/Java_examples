@@ -12,7 +12,7 @@ public class DbPractical {
     String url = "jdbc:sqlite:."+ dbFile;
 
     public DbPractical(String fileName){ // constructor
-        dbFile = this.dbFile;
+        this.dbFile = fileName;
     }   
 
     private Connection connect(String url){ // connection to db
