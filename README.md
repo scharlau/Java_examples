@@ -5,3 +5,5 @@ The sqlite driver is from https://github.com/xerial/sqlite-jdbc
 The CSV file is used for the parsing example.
 
 The demo folder is an example of using junit with maven to do fizz buzz
+
+Week 8 has string methods, and the collections with secretlist example showing how to override methods
