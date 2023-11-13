@@ -18,7 +18,8 @@ class Dictionary {
 
             // Reads first byte from file
             while (scanner.hasNext()){
-               String tempString = scanner.nextLine();
+               String tempString = scanner.next();
+               //String tempString = scanner.nextLine();
                // could clean up output by adding spaces, or line endings here
                System.out.println(tempString);
 

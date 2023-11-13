@@ -1,10 +1,13 @@
 // writing data to file
 import java.io.FileNotFoundException;
-import java.io.BufferedReader;
+import java.io.BufferedInputStream;
 import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileReader;
+import java.io. FileWriter;
 import java.io.FileOutputStream;
 import java.io.FileInputStream;
+import java.io.OutputStreamWriter;
 import java.io.IOException;
 import java.lang.SecurityException;
 import java.util.Formatter;
@@ -17,19 +20,23 @@ public class Streaming{
   public static void main(String[] args) throws IOException {
     //open mytext.txt, output data to the file and then close
    // Formatter output;
-    Scanner input;
-    FileWriter fileOut;
+    BufferedWriter fileOut;
+    
 
-    try (Formatter output = new Formatter("mytext.txt")){
-      input = new Scanner(new BufferedReader(new FileReader("test-dictionary.txt")));
-      fileOut = new BufferedWriter(new FileOutputStream("my-dictionary.txt"));
+    try {
+      FileInputStream file = new FileInputStream("test-dictionary.txt");
+      BufferedInputStream input = new BufferedInputStream(file);
+      Scanner scanner = new Scanner(input);
+      FileOutputStream filestream = new FileOutputStream( new File("my-dictionary.txt"));
+      OutputStreamWriter writer = new OutputStreamWriter(filestream);
+      fileOut = new BufferedWriter(writer);
       System.out.println("opened dictionary");
-     // String tempString = "";
+      String tempString = "";
 
       // start parsing the dictionary
-      while(input.hasNext()){
+      while(scanner.hasNext()){
         try {
-          String tempString = input.next();
+          tempString = scanner.next();
           System.out.println(tempString);
           fileOut.write(tempString);
           //    %[argument_index$][flags][width]conversion 
@@ -39,11 +46,11 @@ public class Streaming{
         }
         catch(IOException | NoSuchElementException e){
             System.err.println("invalid input");
-            input.nextLine();
+            //input.nextLine();
        }
         finally {
-          if (input != null) {
-              input.close();
+          if (scanner != null) {
+              scanner.close();
           }
         }
       }
