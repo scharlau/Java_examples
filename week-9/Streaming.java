@@ -1,7 +1,6 @@
 // writing data to file
 import java.io.FileNotFoundException;
 import java.io.BufferedInputStream;
-import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileReader;
 import java.io. FileWriter;
@@ -18,10 +17,6 @@ import java.util.Scanner;
 
 public class Streaming{
   public static void main(String[] args) throws IOException {
-    //open mytext.txt, output data to the file and then close
-   // Formatter output;
-    BufferedWriter fileOut;
-    
 
     try {
       FileInputStream file = new FileInputStream("test-dictionary.txt");
@@ -29,7 +24,6 @@ public class Streaming{
       Scanner scanner = new Scanner(input);
       FileOutputStream filestream = new FileOutputStream( new File("my-dictionary.txt"));
       OutputStreamWriter writer = new OutputStreamWriter(filestream);
-      fileOut = new BufferedWriter(writer);
       System.out.println("opened dictionary");
       String tempString = "";
 
@@ -37,19 +31,16 @@ public class Streaming{
       while(scanner.hasNext()){
         try {
           tempString = scanner.next();
+          // manipulate text here to make output more readable
           System.out.println(tempString);
-          fileOut.write(tempString);
-          //    %[argument_index$][flags][width]conversion 
-          // https://docs.oracle.com/javase/tutorial/essential/io/formatting.html 
-         // output.format(": %0-30f", tempString);
-         // output.format("%f, %-$+020.10", tempString);
+          writer.write(tempString);
         }
         catch(IOException | NoSuchElementException e){
             System.err.println("invalid input");
-            //input.nextLine();
+            scanner.nextLine();
        }
         finally {
-          if (scanner != null) {
+          if (scanner == null) {
               scanner.close();
           }
         }
