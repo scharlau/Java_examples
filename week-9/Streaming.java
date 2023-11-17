@@ -30,8 +30,9 @@ public class Streaming{
       // start parsing the dictionary
       while(scanner.hasNext()){
         try {
-          tempString = scanner.next();
+          tempString = scanner.nextLine();
           // manipulate text here to make output more readable
+          tempString = tempString + "\r\n";
           System.out.println(tempString);
           writer.write(tempString);
         }

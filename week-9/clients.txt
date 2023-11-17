@@ -1,3 +1,0 @@
-45678 Bob Jone 567.89
-2345 Sally Smith 678.98
-8
