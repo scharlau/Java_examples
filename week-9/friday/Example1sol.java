@@ -49,7 +49,7 @@ public static void main(String[] args) {
 
     System.out.println("First sum: "+sum (integers));
     
-    addAnyNumber(integers,new Double(2.0));
+    addAnyNumber(integers,2);
 
     System.out.println("Second sum: "+ sum(integers));
     System.out.println("Last integer in the list: "+ (Integer) integers.get(integers.size()-1));
